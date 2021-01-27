@@ -30,7 +30,7 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-  throw new Error('Not implemented');
+  return new RegExp('^{[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}}$', 'i');
 }
 
 
@@ -46,13 +46,13 @@ function getRegexForGuid() {
  *  'slap two'                'part'
  *  'respite'
  *
- * NOTE : the regex lenth should be < 13
+ * NOTE : the regex length should be < 13
  *
  * @return {RegExp}
  *
  */
 function getRegexForPitSpot() {
-  throw new Error('Not implemented');
+  return new RegExp(/^(pi|s|r)/);
 }
 
 
@@ -71,7 +71,7 @@ function getRegexForPitSpot() {
  * @return {RegExp}
  */
 function getRegexForIPv4() {
-  throw new Error('Not implemented');
+  return new RegExp(/^(([0-9]|[1-9][0-9]|0[0-9]{2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|0[0-9]{2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/);
 }
 
 
@@ -90,13 +90,13 @@ function getRegexForIPv4() {
  * @return {RegExp}
  */
 function getRegexForSSN() {
-  throw new Error('Not implemented');
+  return new RegExp(/^([1-9][0-9][0-9]|[0-9][1-9][0-9]|[0-9][0-9][1-9])-([1-9][0-9]|[0-9][1-9])-([1-9][0-9][0-9][0-9]|[0-9][1-9][0-9][0-9]|[0-9][0-9][1-9][0-9]|[0-9][0-9][0-9][1-9])/);
 }
 
 
 /**
  * Returns the password validator regex.
- * Regex will validate a password to make sure it meets the follwing criteria:
+ * Regex will validate a password to make sure it meets the following criteria:
  *  - At least specified characters long (argument minLength)
  *  - Contains a lowercase letter
  *  - Contains an uppercase letter
@@ -115,7 +115,7 @@ function getRegexForSSN() {
  *   'Pa55'.match(validator) => false
  */
 function getPasswordValidator(minLength) {
-  throw new Error('Not implemented');
+  return new RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]' + `{${minLength},}$`);
 }
 
 module.exports = {
